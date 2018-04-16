@@ -9,7 +9,6 @@ unzip("household_power_consumption.zip")
 debug(utils:::unpackPkgZip)
 
 ## read the data into R
-household_power <- read.table("./household_power_consumption.txt", stringsAsFactors = FALSE, header = TRUE, sep =";")
 
 household_power <- read.csv("./household_power_consumption.txt", header=T, sep=';', na.strings="?", nrows=2075259, check.names=F, stringsAsFactors=F, comment.char="", quote='\"')
 
@@ -18,7 +17,6 @@ household_power$Date <- as.Date(household_power$Date, format="%d/%m/%Y")
 
 
 ## reformat the columns
-household_power$Date <- format(household_power$Date, format = "%d/%m/%Y")
 household_power$Time <-format(household_power$Time, format = "%H:%M:%S")
 household_power$Global_active_power <- as.numeric(household_power$Global_active_power)
 household_power$Global_reactive_power <- as.numeric(household_power$Global_reactive_power)
